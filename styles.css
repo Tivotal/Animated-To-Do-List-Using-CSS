@@ -183,9 +183,12 @@ body {
     opacity: 1;
   }
   100% {
-    box-shadow: 0 -15px 0 0px #4f29f0, 14px -8px 0 0px #4f29f0,
-      14px 8px 0 0px #4f29f0, 0 15px 0 0px #4f29f0, -14px 8px 0 0px #4f29f0,
-      -14px -8px 0 0px #4f29f0;
+    box-shadow: 0 -15px 0 0px #4f29f0, 
+                14px -8px 0 0px #4f29f0,
+                14px 8px 0 0px #4f29f0, 
+                0 15px 0 0px #4f29f0, 
+               -14px 8px 0 0px #4f29f0,
+               -14px -8px 0 0px #4f29f0;
     opacity: 0;
   }
 }

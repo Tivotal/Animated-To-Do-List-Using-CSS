@@ -1,0 +1,191 @@
+/* Created by Tivotal */
+
+/* Google Fonts(Poppins) */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+* {
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #e8e8e8;
+}
+
+.list {
+  position: relative;
+  width: 250px;
+  height: 300px;
+  background: #fff;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  padding: 30px;
+  display: grid;
+  grid-template-columns: 30px auto;
+  align-items: center;
+  justify-content: center;
+}
+
+.list input {
+  /*   appearance: none; */
+}
+
+.list label {
+  position: relative;
+  width: fit-content;
+  font-size: 17px;
+  color: #414856;
+  display: grid;
+  align-items: center;
+  margin-right: 20px;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.list label::before {
+  position: absolute;
+  content: "";
+  height: 2px;
+  width: 8px;
+  background: #4f29f0;
+  left: -27px;
+  border-radius: 2px;
+  transition: background 0.3s ease;
+}
+
+.list input:checked + label {
+  color: #c3c8de;
+  animation: move 0.3s ease 0.1s forwards;
+}
+
+@keyframes move {
+  50% {
+    padding-left: 8px;
+    padding-right: 0px;
+  }
+  100% {
+    padding-right: 4px;
+  }
+}
+
+.list input:checked + label::before {
+  background: #c3c8de;
+  animation: slice 0.5s ease 0.1s forwards;
+}
+
+@keyframes slice {
+  60% {
+    width: 100%;
+    left: 4px;
+  }
+  100% {
+    width: 100%;
+    left: -2px;
+    padding-left: 0;
+  }
+}
+
+.list input {
+  position: relative;
+  width: 15px;
+  height: 15px;
+  appearance: none;
+}
+
+.list input::before {
+  position: absolute;
+  content: "";
+  height: 2px;
+  /*  width: 5px; */
+  width: 0px;
+  background: #4f29f0;
+  border-radius: 2px;
+  top: 8px;
+  /*  top: auto; */
+  right: 60%;
+  /*   transform: rotate(45deg); */
+  transform-origin: right bottom;
+}
+
+.list input::after {
+  position: absolute;
+  content: "";
+  height: 2px;
+  /*  width: 10px; */
+  width: 0px;
+  background: #4f29f0;
+  border-radius: 2px;
+  /*  top: 8px; */
+  top: auto;
+  left: 40%;
+  /* transform: rotate(-45deg); */
+  transform-origin: left bottom;
+}
+
+.list input:checked::before {
+  --width: 5px;
+  --angle: 45deg;
+  animation: check 0.4s ease forwards;
+}
+
+.list input:checked::after {
+  --width: 10px;
+  --angle: -45deg;
+  animation: check 0.4s ease forwards;
+}
+
+@keyframes check {
+  0% {
+    width: 4px;
+    top: auto;
+    transform: rotate(0);
+  }
+  50% {
+    width: 0px;
+    top: auto;
+    transform: rotate(0);
+  }
+  51% {
+    width: 0px;
+    top: 8px;
+    transform: rotate(var(--angle));
+  }
+  100% {
+    width: var(--width);
+    top: 8px;
+    transform: rotate(var(--angle));
+  }
+}
+
+.list label::after {
+  position: absolute;
+  content: "";
+  width: 4px;
+  height: 4px;
+  top: 8px;
+  left: -25px;
+  border-radius: 50%;
+}
+
+.list input:checked + label::after {
+  animation: firework 0.5s ease forwards 0.1s;
+}
+
+@keyframes firework {
+  0%,
+  30% {
+    opacity: 1;
+  }
+  100% {
+    box-shadow: 0 -15px 0 0px #4f29f0, 14px -8px 0 0px #4f29f0,
+      14px 8px 0 0px #4f29f0, 0 15px 0 0px #4f29f0, -14px 8px 0 0px #4f29f0,
+      -14px -8px 0 0px #4f29f0;
+    opacity: 0;
+  }
+}
